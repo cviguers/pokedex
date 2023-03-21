@@ -1,5 +1,5 @@
-var pokeURL = "https://pokeapi.co/api/v2/";
-var pinterestURL = "https://developers.pinterest.com/";
+var pokeURL = "https://pokeapi.co/api/v2/ability/";
+var pinterestURL = "https://api.pinterest.com/v5/pins/";
 var pokeInfoEl = document.querySelector('pokeInfo')
 var buttonEl = document.querySelector("#button");
 
@@ -8,8 +8,13 @@ var displayPoke = function (text) {
 };
 
 var renderButtons = function() {
-
-};
+    var searchedPoke = getSearchedPoke();
+        for (var i = 0; i < searchedPoke.length; i++) {
+            var button = document.createElement('button');
+            button.textContent = searchedPoke[i].//resultfromAPI;
+            button.dataset.id = searchedPoke[i].id;
+        }
+    };
 
 var getSearchedPoke = function() {
   return JSON.parse(localStorage.getItem('searchedPoke')) || [];
@@ -40,7 +45,8 @@ var getPokePintrestImage = function (term) {
 };
 
 var renderPoke = function (data) {
-  // TODO: DO SOMETHING
+  var resultPoke = document.createElement('h2');
+  resultPoke.textContent = // data.result
   getPokePintrestImage(data.name);
 };
 
