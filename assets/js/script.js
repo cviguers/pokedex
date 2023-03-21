@@ -1,5 +1,5 @@
 var pokeURL = "https://pokeapi.co/api/v2/ability/";
-var pinterestURL = "https://api.pinterest.com/v5/pins/";
+// var pinterestURL = "https://api.pinterest.com/v5/pins/";
 var pokeInfoEl = document.querySelector('pokeInfo')
 var buttonEl = document.querySelector("#button");
 
@@ -30,24 +30,26 @@ var toJSON = function (response) {
   return response.json();
 };
 
-var renderPinterestImage = function (data) {
-  // RENDER IMAGE
-};
+// var renderPinterestImage = function (data) {
+//   // RENDER IMAGE
+// };
 
-var getPokePintrestImage = function (term) {
-  fetch("pintrestURL" + term, {
-    headers: {
-      Accept: "application/json",
-    },
-  })
-    .then(toJSON)
-    .then(renderPinterestImage);
-};
+// var getPokePintrestImage = function (term) {
+//   fetch("pintrestURL" + term, {
+//     headers: {
+//       Accept: "application/json",
+//     },
+//   })
+//     .then(toJSON)
+//     .then(renderPinterestImage);
+// };
 
 var renderPoke = function (data) {
   var resultPoke = document.createElement('h2');
-  resultPoke.textContent = // data.result
-  getPokePintrestImage(data.name);
+  pokeInfoEl.appendChild(resultPoke);
+  resultPoke.textContent = data.results.name;
+  console.log (data);
+  // getPokePintrestImage(data.name);
 };
 
 var getPoke = function () {
