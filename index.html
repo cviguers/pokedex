@@ -8,12 +8,21 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <h1>Pokemon Search</h1>
-   <form action="">
-    <div id="button">
-        <label for="Generation" class="form-label"></label>
+    <!-- search -->
+    <h1>Search</h1>
+    <div class="search-container">
+        <form id="search">
+            <input type="text" id="q" placeholder="Search Term">
+            <button type="submit" class="btn btn-search" id="button"></button>
+        </form>
     </div>
-   </form>
+
+    <!-- results -->
+    <h2>Results</h2>
+    <div class="results-container">
+        <!-- results go here in DOM -->
+    </div>
+     
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
