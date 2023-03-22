@@ -1,0 +1,32 @@
+#searched-container {
+    display: flex;
+    justify-content: center;
+    text-align: center; 
+}
+
+.header {
+    display: flex; 
+    justify-content: center; 
+    padding-bottom: 50px;
+}
+#searchButton {
+    background-color: red;
+    color: white; 
+}
+#searchButton:hover {
+    border: 10px;
+}
+#searchButton:active {
+    background-color: white;
+    color: red;
+}
+#results-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.result-display {
+    display: flex; 
+    justify-content: center; 
+}
