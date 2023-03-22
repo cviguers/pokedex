@@ -5,19 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Search</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/normalise.css">
+    <link rel="stylesheet" href="./assets/css/skeleton.css">
 </head>
 <body>
     <!-- search -->
     <h1>Pokemon Search</h1>
+    <div id="searched-container">
     <form>
     <label for="searchBar">Search</label>
     <input type="text" id="searchBar" placeholder="Enter Pokemon name or ID">
     <button id="searchButton" type="submit">Search</button>
     </form>
+</div>
 
     <!-- results -->
     <h3>Results</h3>
+    <div id="results-container">
     <div id="result"></div>
+</div>
     <script src="./assets/js/script.js"></script>
+
 </body>
 </html>
