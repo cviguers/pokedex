@@ -1,25 +1,14 @@
-var pokeURL = "https://pokeapi.co/api/v2/ability/";
+var pokeURL = "https://pokeapi.co/api/v2/pokemon?limit=60&offset=60";
 // var pinterestURL = "https://api.pinterest.com/v5/pins/";
-var pokeInfoEl = document.querySelector('pokeInfo')
+var pokeInfoEl = document.querySelector("#pokeInfo");
 var buttonEl = document.querySelector("#button");
 
-var displayPoke = function (text) {
-  pokeInfoEl.textContent = text;
-};
-
-var renderButtons = function() {
-    var searchedPoke = getSearchedPoke();
-        for (var i = 0; i < searchedPoke.length; i++) {
-            var button = document.createElement('button');
-            button.textContent = searchedPoke[i].//resultfromAPI;
-            button.dataset.id = searchedPoke[i].id;
-        }
-    };
-
+// get local storage
 var getSearchedPoke = function() {
   return JSON.parse(localStorage.getItem('searchedPoke')) || [];
 };
 
+// set local storage
 var setSearchedPoke = function() {
   var searchedPoke = getSearchedPoke();
   searchedPoke.push(text);
@@ -27,6 +16,7 @@ var setSearchedPoke = function() {
 };
 
 var toJSON = function (response) {
+  console.log(response)
   return response.json();
 };
 
@@ -45,21 +35,17 @@ var toJSON = function (response) {
 // };
 
 var renderPoke = function (data) {
-  var resultPoke = document.createElement('h2');
-  pokeInfoEl.appendChild(resultPoke);
-  resultPoke.textContent = data.results.name;
-  console.log (data);
+  for (var i = 0; 0 < data.results.length; i++)
+  console.log(data.results[i])
+  var resultPoke = document.createElement('div');
+  resultPoke.textContent = data.results[i];
   // getPokePintrestImage(data.name);
 };
 
-var getPoke = function () {
-  fetch(pokeURL, {
-    headers: {
-      Accept: "application/json",
-    },
-  })
+var fetchPoke = function () {
+  fetch(pokeURL)
     .then(toJSON)
     .then(renderPoke);
 };
 
-getPoke();
+fetchPoke();
