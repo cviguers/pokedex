@@ -1,26 +1,29 @@
-#searched-container {
+#search-container {
     display: flex;
     justify-content: center;
     text-align: center; 
+    display: block;
 }
 
-.header {
-    display: flex; 
-    justify-content: center; 
-    padding-bottom: 50px;
+img {
+    justify-content: center;
 }
+
 #searchButton {
     background-color: red;
     color: white; 
 }
+
 #searchButton:hover {
     border: 10px;
 }
+
 #searchButton:active {
     background-color: white;
     color: red;
 }
-#results-container {
+
+#result-header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -28,5 +31,16 @@
 
 .result-display {
     display: flex; 
+    display: block;
     justify-content: center; 
+    font-family: 'Pokemon Solid', sans-serif;
+    color: red;
+    font-size: 60px;
+    text-align: center;
+}
+
+.results-formatting {
+    display: flex;
+    display: block;
+    text-align: center;
 }
