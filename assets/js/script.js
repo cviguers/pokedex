@@ -43,7 +43,7 @@ var renderPoke = function (data) {
 
 var renderResults = function () {
   var resultsHeader = document.createElement("h3");
-  resultsHeader.textContent = "Results!";
+  resultsHeader.textContent = "Results";
   resultsHeader.classList.add("result-display");
   resultsEl.appendChild(resultsHeader);
 };
