@@ -9,6 +9,8 @@ var searchBtn = document.querySelector("#searchButton");
 var giphyEl = document.querySelector("#giphy-container");
 var historyContainer = document.querySelector(".history-container")
 var historyList = document.createElement('ul')
+historyList.textContent = "Search History"
+historyList.classList = "history-title"
 historyContainer.append(historyList)
 
 var getSearchedHistory = function () {
@@ -17,6 +19,7 @@ var getSearchedHistory = function () {
   for (i=0; i < localHistory.length; i++) {
     var newLi = document.createElement('li')
     newLi.textContent = localHistory[i]
+    newLi.classList.add("history")
     historyList.append(newLi)
   }
 
