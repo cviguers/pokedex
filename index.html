@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon by Search</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Pokemon Search</title>
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/normalise.css">
+    <link rel="stylesheet" href="./assets/css/skeleton.css">
 </head>
+
 <body>
     <!-- search -->
-    <h1>Search</h1>
-    <div class="search-container">
-        <form id="search">
-            <input type="text" id="q" placeholder="Search Term">
-            <button type="submit" class="btn btn-search" id="button"></button>
+
+    <div id="search-container">
+        <img src="./assets/images/Pokédex_logo.png">
+        <form>
+            <label for="searchBar">search by pokemon or number</label>
+            <input type="text" class="user-input" id="searchBar" placeholder="Enter Pokemon name or ID">
+            <button id="searchButton" type="submit">Search</button>
         </form>
     </div>
 
     <!-- results -->
-    <h2>Results</h2>
-    <div class="results-container">
-        <!-- results go here in DOM -->
-    </div>
-     
+    <section class="results-formatting">
+        <div id="results-title"></div>
+        <div id="results-container">
+            <div id="giphy-container"></div>
+            <div id="result"></div>
+        </div>
+    </section>
+
+
     <script src="./assets/js/script.js"></script>
+
 </body>
+
 </html>
