@@ -49,11 +49,10 @@ var renderResults = function () {
 };
 
 var renderGiphy = function(data) {
-    console.log(data.data[0].images.looping)
-    var giphyCards = document.createElement('img');
-    giphyCards.innerHTML = data.data[0].images.looping;
-    console.log(giphyCards)
-    giphyEl.appendChild(giphyCards);
+  console.log(data.data[0].images.original.url)
+  var giphyCards = document.createElement('img');
+  giphyCards.setAttribute("src", data.data[0].images.original.url);
+  giphyEl.appendChild(giphyCards);
 };
 
 function fetchGiphy() {

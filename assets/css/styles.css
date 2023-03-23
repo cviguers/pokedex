@@ -5,6 +5,19 @@
     display: block;
 }
 
+body {
+   background-image: url(./images2/a3a290f29bebd9a080b9667bb3fc759d.png)
+    /* animation-duration: 4s; 
+    animation-name: animation;
+    animation-iteration-count: infinite; */
+}
+
+/*@keyframes animation {
+   0% {background-color: yellowgreen;}
+   50% {background-color: orange;}
+   100% {background-color: yellowgreen;}
+} */
+
 img {
     justify-content: center;
 }
