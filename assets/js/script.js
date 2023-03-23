@@ -6,16 +6,26 @@ var resultsTitleEl = document.querySelector("#results-title");
 var resultsFormattingEl = document.querySelector(".results-formatting");
 var userInput = document.querySelector(".user-input");
 var searchBtn = document.querySelector("#searchButton");
-var giphyEl = document.querySelector("#giphy-container")
+var giphyEl = document.querySelector("#giphy-container");
+var historyContainer = document.querySelector(".history-container")
+var historyList = document.createElement('ul')
+historyContainer.append(historyList)
 
 var getSearchedHistory = function () {
-  return JSON.parse(localStorage.getItem("searchedPoke"));
+  var localHistory = JSON.parse(localStorage.getItem("searchBar"));
+  console.log(localHistory)
+  for (i=0; i < localHistory.length; i++) {
+    var newLi = document.createElement('li')
+    newLi.textContent = localHistory[i]
+    historyList.append(newLi)
+  }
+
 };
 
 var setSearchedHistory = function (text) {
-  var searchedPoke = getSearchedHistory() || [];
-  searchedPoke.push(text);
-  localStorage.setItem("searchedPoke", JSON.stringify(searchedPoke));
+  var searchBar = getSearchedHistory() || [];
+  searchBar.push(text);
+  localStorage.setItem("searchBar", JSON.stringify(searchBar));
 };
 
 var renderPoke = function (data) {
@@ -88,4 +98,7 @@ form.addEventListener("submit", function (event) {
     .catch(function (error) {
       resultDiv.innerHTML = `<p>${error.message}</p>`;
     });
+    setSearchedHistory(searchValue);
 });
+
+getSearchedHistory()
