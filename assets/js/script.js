@@ -1,3 +1,4 @@
+// global variables
 var searchBar = document.getElementById("searchBar");
 var form = document.querySelector("form");
 var resultDiv = document.getElementById("result");
@@ -13,21 +14,22 @@ historyList.classList = "history-title"
 
 // receive local storage and apply to page
 var getSearchedHistory = function () {
-  var localHistory = JSON.parse(localStorage.getItem("searchBar"));
-    for (i = 0; i < localHistory.length; i++) {
-      var localHistory = localHistory[i]
-      var newLi = document.createElement("li");
-      newLi.textContent = localHistory
-      // newLi.classList.add("history")
-      historyList.append(newLi)
+  var localHistory = JSON.parse(localStorage.getItem("searchBar")) || [];
+  console.log(localHistory);
+  for (var i = 0; i < localHistory.length; i++) {
+    var searchTerm = localHistory[i];
+    var newLi = document.createElement("li");
+    newLi.textContent = searchTerm;
+    historyList.append(newLi);
   }
 };
 
-// set up local storage keys 
+// set up local storage keys
 var setSearchedHistory = function (text) {
-  var searchBar = getSearchedHistory() || [];
-  searchBar.push(text);
-  localStorage.setItem("searchBar", JSON.stringify(searchBar));
+  var searchBarHistory = JSON.parse(localStorage.getItem("searchBar")) || [];
+  searchBarHistory.push(text);
+  console.log(searchBarHistory);
+  localStorage.setItem("searchBar", JSON.stringify(searchBarHistory));
 };
 
 // show pokemon on page
@@ -39,7 +41,6 @@ var renderPoke = function (data) {
   resultsFormatting.classList.add("results-formatting");
   resultsTitleEl.appendChild(resultsHeader);
   resultsFormattingEl.append(resultsFormatting);
-  console.log(data);
   var name = data.name;
   var spriteUrl = data.sprites.front_default;
   var types = data.types.map(function (type) {
@@ -61,13 +62,14 @@ var renderResults = function () {
   resultsEl.appendChild(resultsHeader);
 };
 
+// show giphs on page
 var renderGiphy = function(data) {
-  console.log(data.data[0].images.original.url)
   var giphyCards = document.createElement('img');
   giphyCards.setAttribute("src", data.data[0].images.original.url);
   giphyEl.appendChild(giphyCards);
 };
 
+// fetch giphy from API
 function fetchGiphy() {
   var searchValue = searchBar.value;
   var giphyURL =
@@ -86,8 +88,10 @@ function fetchGiphy() {
     });
 }
 
+// fetch api on click
 searchBtn.addEventListener('click', fetchGiphy)
 
+// fetch poke api on click
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   var searchValue = searchBar.value.toLowerCase();
@@ -103,3 +107,5 @@ form.addEventListener("submit", function (event) {
     });
     setSearchedHistory(searchValue);
 });
+
+getSearchedHistory()
