@@ -18,7 +18,7 @@ var getSearchedHistory = function () {
       var localHistory = localHistory[i]
       var newLi = document.createElement("li");
       newLi.textContent = localHistory
-      // newLi.classList.add("history")
+      newLi.classList.add("history")
       historyList.append(newLi)
   }
 };
