@@ -7,30 +7,30 @@ var resultsFormattingEl = document.querySelector(".results-formatting");
 var userInput = document.querySelector(".user-input");
 var searchBtn = document.querySelector("#searchButton");
 var giphyEl = document.querySelector("#giphy-container");
-var historyContainer = document.querySelector(".history-container")
-var historyList = document.createElement('ul')
+var historyList = document.querySelector(".history-container")
 historyList.textContent = "Search History"
 historyList.classList = "history-title"
-historyContainer.append(historyList)
 
+// receive local storage and apply to page
 var getSearchedHistory = function () {
   var localHistory = JSON.parse(localStorage.getItem("searchBar"));
-  console.log(localHistory)
-  for (i=0; i < localHistory.length; i++) {
-    var newLi = document.createElement('li')
-    newLi.textContent = localHistory[i]
-    newLi.classList.add("history")
-    historyList.append(newLi)
+    for (i = 0; i < localHistory.length; i++) {
+      var localHistory = localHistory[i]
+      var newLi = document.createElement("li");
+      newLi.textContent = localHistory
+      // newLi.classList.add("history")
+      historyList.append(newLi)
   }
-
 };
 
+// set up local storage keys 
 var setSearchedHistory = function (text) {
   var searchBar = getSearchedHistory() || [];
   searchBar.push(text);
   localStorage.setItem("searchBar", JSON.stringify(searchBar));
 };
 
+// show pokemon on page
 var renderPoke = function (data) {
   var resultsHeader = document.createElement("h3");
   var resultsFormatting = document.createElement("div");
@@ -53,7 +53,7 @@ var renderPoke = function (data) {
   resultDiv.innerHTML = resultHTML;
 };
 
-
+// show results header on page
 var renderResults = function () {
   var resultsHeader = document.createElement("h3");
   resultsHeader.textContent = "Results";
@@ -103,5 +103,3 @@ form.addEventListener("submit", function (event) {
     });
     setSearchedHistory(searchValue);
 });
-
-getSearchedHistory()
