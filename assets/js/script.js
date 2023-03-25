@@ -15,11 +15,12 @@ historyList.classList = "history-title";
 // receive local storage and apply to page
 var getSearchedHistory = function () {
   var localHistory = JSON.parse(localStorage.getItem("searchBar")) || [];
-  console.log(localHistory);
+  historyList.innerHTML = null
   for (var i = 0; i < localHistory.length; i++) {
     var searchTerm = localHistory[i];
     var newLi = document.createElement("li");
     newLi.textContent = searchTerm;
+    newLi.classList.add("liststyle")
     historyList.append(newLi);
   }
 };
@@ -108,4 +109,5 @@ form.addEventListener("submit", function (event) {
       resultDiv.innerHTML = `<p>${error.message}</p>`;
     });
     setSearchedHistory(searchValue);
+    getSearchedHistory();
 });
